@@ -1,0 +1,33 @@
+FROM debian:testing
+MAINTAINER Sebastian Wagner <2000sw@gmail.com>
+
+# Install sources.list containing backports, security updates etc.
+RUN apt update \
+&& echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf.d/55docker \
+&& echo 'APT::Install-Recommends "0";' >> /etc/apt/apt.conf.d/55docker \
+&& apt install -y \
+  locales \
+  profanity \
+&& apt clean \
+&& sed -i 's/# en_US.UTF-8/en_US.UTF-8/g' /etc/locale.gen \
+&& locale-gen en_US.UTF-8 \
+&& locale-gen \
+&& echo 'LANG=en_US.UTF-8' > /etc/default/locale \
+&& adduser --disabled-password --gecos 'Profanity user' profanity \
+&& echo "profanity:foobar" | chpasswd
+USER profanity
+WORKDIR /home/profanity
+
+CMD ["/bin/bash"]
+
+# build:
+# docker build --force-rm --tag=sebastianwagner/profanity:latest -f Dockerfile.profanity .
+
+# run
+# docker run --rm -ti --name=profanity-container sebastianwagner/profanity
+
+# todo
+# doc timezone volume
+# skip locale-dance
+# no password for user
+# entrypoint
