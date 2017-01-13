@@ -2,6 +2,7 @@ FROM alpine:edge
 MAINTAINER Sebastian Wagner <2000sw@gmail.com>
 
 RUN apk add --no-cache --update \
+            lua5.1-dbi-sqlite3 \
             prosody \
  && sed --in-place --expression 's/\(daemonize = \)true/\1false/' /etc/prosody/prosody.cfg.lua \
  && luac -p /etc/prosody/prosody.cfg.lua
