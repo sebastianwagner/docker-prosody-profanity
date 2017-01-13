@@ -154,16 +154,16 @@ log = {
 VirtualHost "localhost"
 	enabled = false
 
-VirtualHost "example.com"
-	enabled = false -- Remove this line to enable this host
+VirtualHost "prosody"
+	-- enabled = false -- Remove this line to enable this host
 
 	-- Assign this host a certificate for TLS, otherwise it would use the one
 	-- set in the global section (if any).
 	-- Note that old-style SSL on port 5223 only supports one certificate, and will always
 	-- use the global one.
 	ssl = {
-		key = "/etc/prosody/certs/example.com.key";
-		certificate = "/etc/prosody/certs/example.com.crt";
+		key = "/etc/prosody/certs/prosody.key";
+		certificate = "/etc/prosody/certs/prosody.crt";
 	}
 
 ------ Components ------
