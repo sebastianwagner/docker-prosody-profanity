@@ -88,10 +88,10 @@ allow_registration = false;
 
 -- These are the SSL/TLS-related settings. If you don't want
 -- to use SSL/TLS, you may comment or remove this
-ssl = {
-	key = "/etc/prosody/certs/localhost.key";
-	certificate = "/etc/prosody/certs/localhost.crt";
-}
+-- ssl = {
+-- 	key = "/etc/prosody/certs/localhost.key";
+-- 	certificate = "/etc/prosody/certs/localhost.crt";
+-- }
 
 -- Force clients to use encrypted connections? This option will
 -- prevent clients from authenticating unless they are using encryption.
@@ -152,6 +152,7 @@ log = {
 -- Settings under each VirtualHost entry apply *only* to that host.
 
 VirtualHost "localhost"
+	enabled = false
 
 VirtualHost "example.com"
 	enabled = false -- Remove this line to enable this host
