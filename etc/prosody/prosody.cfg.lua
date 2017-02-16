@@ -80,6 +80,7 @@ modules_disabled = {
 	-- "offline"; -- Store offline messages
 	-- "c2s"; -- Handle client connections
 	"s2s"; -- Handle server-to-server connections
+	"legacy_ssl";
 };
 
 -- Disable account creation by default, for security
@@ -96,7 +97,7 @@ allow_registration = false;
 -- Force clients to use encrypted connections? This option will
 -- prevent clients from authenticating unless they are using encryption.
 
-c2s_require_encryption = false
+c2s_require_encryption = true
 
 -- Force certificate authentication for server-to-server connections?
 -- This provides ideal security, but requires servers you communicate
