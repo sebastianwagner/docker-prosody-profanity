@@ -99,13 +99,14 @@ allow_registration = false;
 
 c2s_require_encryption = true
 
+s2s_require_encryption = true
 -- Force certificate authentication for server-to-server connections?
 -- This provides ideal security, but requires servers you communicate
 -- with to support encryption AND present valid, trusted certificates.
 -- NOTE: Your version of LuaSec must support certificate verification!
 -- For more information see http://prosody.im/doc/s2s#security
 
-s2s_secure_auth = false
+s2s_secure_auth = true
 
 -- Many servers don't support encryption or have invalid or self-signed
 -- certificates. You can list domains here that will not be required to
