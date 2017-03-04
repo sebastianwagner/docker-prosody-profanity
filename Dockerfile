@@ -9,7 +9,7 @@ RUN apk add --no-cache --update \
  && luac -p /etc/prosody/prosody.cfg.lua
 
 
-EXPOSE 5222 5269
+EXPOSE 5222/tcp 5269/tcp
 USER prosody
 WORKDIR /var/lib/prosody/
 CMD ["prosodyctl", "start"]
