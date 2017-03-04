@@ -1,7 +1,12 @@
 FROM alpine:3.5
 MAINTAINER Sebastian Wagner <2000sw@gmail.com>
 
-RUN apk add --no-cache --update \
+ADD root.crt /usr/local/share/ca-certificates/
+RUN mkdir -p /etc/ssl/certs \
+ && \
+ ln -s /usr/local/share/ca-certificates/root.crt /etc/ssl/certs/ \
+ && \
+ apk add --no-cache --update \
             lua5.1-dbi-sqlite3 \
             prosody \
             ca-certificates \
