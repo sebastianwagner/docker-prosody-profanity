@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.5
 MAINTAINER Sebastian Wagner <2000sw@gmail.com>
 
 RUN apk add --no-cache --update \
