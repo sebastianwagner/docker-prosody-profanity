@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:edge
 MAINTAINER Sebastian Wagner <2000sw@gmail.com>
 
 ADD root.crt /usr/local/share/ca-certificates/
