@@ -10,6 +10,10 @@ RUN mkdir -p /etc/ssl/certs \
             lua5.2-dbi-sqlite3 \
             prosody \
             ca-certificates \
+ && \
+ apk add --no-cache --update \
+  --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
+  prosody-mod-smacks \
  && rmdir -v /var/run/prosody \
  && sed --in-place --expression 's/\(daemonize = \)true/\1false/' /etc/prosody/prosody.cfg.lua \
  && luac5.2 -p /etc/prosody/prosody.cfg.lua
