@@ -43,7 +43,7 @@ modules_enabled = {
 		"roster"; -- Allow users to have a roster. Recommended ;)
 		"saslauth"; -- Authentication for clients and servers. Recommended if you want to log in.
 		"tls"; -- Add support for secure TLS on c2s/s2s connections
-		-- "dialback"; -- s2s dialback support
+		"dialback"; -- s2s dialback support
 		"disco"; -- Service discovery
 
 	-- Not essential, but recommended
@@ -59,7 +59,7 @@ modules_enabled = {
 		"time"; -- Let others know the time here on this server
 		"ping"; -- Replies to XMPP pings with pongs
 		"register"; -- Allow users to register on this server using a client and change passwords
-		--"mam"; -- Store messages in an archive and allow users to access it
+		"mam"; -- Store messages in an archive and allow users to access it
 
 	-- Admin interfaces
 		"admin_adhoc"; -- Allows administration via an XMPP client that supports ad-hoc commands
@@ -88,19 +88,13 @@ modules_disabled = {
 	-- "offline"; -- Store offline messages
 	-- "c2s"; -- Handle client connections
 	-- "s2s"; -- Handle server-to-server connections
-	"posix"; -- POSIX functionality, sends server to background, enables syslog, etc.
+	--"posix"; -- POSIX functionality, sends server to background, enables syslog, etc.
 }
 
 -- Disable account creation by default, for security
 -- For more information see https://prosody.im/doc/creating_accounts
 allow_registration = false
 
--- These are the SSL/TLS-related settings. If you don't want
--- to use SSL/TLS, you may comment or remove this
--- ssl = {
--- 	key = "/etc/prosody/certs/localhost.key";
--- 	certificate = "/etc/prosody/certs/localhost.crt";
--- }
 -- Force clients to use encrypted connections? This option will
 -- prevent clients from authenticating unless they are using encryption.
 
@@ -171,8 +165,8 @@ archive_expires_after = "1w" -- Remove archived messages after 1 week
 log = {
 	-- info = "prosody.log"; -- Change 'info' to 'debug' for verbose logging
 	-- error = "prosody.err";
-	"*syslog"; -- Uncomment this for logging to syslog
-	-- "*console"; -- Log to the console, useful for debugging with daemonize=false
+	--"*syslog"; -- Uncomment this for logging to syslog
+	"*console"; -- Log to the console, useful for debugging with daemonize=false
 }
 
 -- Uncomment to enable statistics
@@ -194,7 +188,7 @@ certificates = "certs"
 -- Settings under each VirtualHost entry apply *only* to that host.
 
 VirtualHost "localhost"
-	enabled = false
+   enabled = false
 
 VirtualHost "prosody"
 

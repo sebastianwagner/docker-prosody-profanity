@@ -7,11 +7,12 @@ RUN mkdir -p /etc/ssl/certs \
  ln -s /usr/local/share/ca-certificates/root.crt /etc/ssl/certs/ \
  && \
  apk add --no-cache --update \
-            lua5.1-dbi-sqlite3 \
+            lua5.2-dbi-sqlite3 \
             prosody \
             ca-certificates \
+ && rmdir -v /var/run/prosody \
  && sed --in-place --expression 's/\(daemonize = \)true/\1false/' /etc/prosody/prosody.cfg.lua \
- && luac -p /etc/prosody/prosody.cfg.lua
+ && luac5.2 -p /etc/prosody/prosody.cfg.lua
 
 
 EXPOSE 5222/tcp 5269/tcp
