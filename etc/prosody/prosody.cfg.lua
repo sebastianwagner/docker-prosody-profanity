@@ -32,7 +32,7 @@ admins = { }
 -- Prosody will always look in its source directory for modules, but
 -- this option allows you to specify additional locations where Prosody
 -- will look for modules first. For community modules, see https://modules.prosody.im/
---plugin_paths = {}
+plugin_paths = { "/etc/prosody/plugins/" }
 
 -- This is the list of modules Prosody will load on startup.
 -- It looks for mod_modulename.lua in the plugins folder, so make sure that exists too.
@@ -81,6 +81,7 @@ modules_enabled = {
 		--"legacyauth"; -- Legacy authentication. Only used by some old clients and bots.
 		"proxy65"; -- Enables a file transfer proxy service which clients behind NAT can use
                 "smacks";
+		"omemo_all_access";
 }
 
 -- These modules are auto-loaded, but should you want
