@@ -199,6 +199,8 @@ VirtualHost "prosody"
 -- like multi-user conferences, and transports.
 -- For more information on components, see https://prosody.im/doc/components
 
+Component "pubsub.example.com" "pubsub"
+
 ---Set up a MUC (multi-user chat) room server on conference.example.com:
 --Component "conference.example.com" "muc"
 
